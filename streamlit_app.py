@@ -200,9 +200,22 @@ def load_css():
 
 
 # Load the HTML file
-def load_html(file_name):
-    with open(file_name) as f:
-        return f.read()
+def load_html():
+    html_code = """
+    <div class="container">
+        <div class="profile-text">
+            <h1>Asadullah Dal</h1>
+            <p class="profile-description">Asadullah Dal is an educator, YouTuber, and freelancer specializing in Computer
+                Vision and Robotics. He
+                founded AiPhile, a YouTube channel with over 3,000 subscribers, providing a comprehensive resource for
+                learning and building computer vision projects. He also offers his expertise as a freelance computer vision
+                developer, making him a sought-after professional in the field</p>
+        </div>
+        <img src="data:image/png;base64,{image_base64}" alt="Profile Image" class="profile-image">
+    </div>
+    """
+
+    return html_code
 
 
 # Path to the profile image (replace 'path/to/image.jpg' with the actual image path)
@@ -216,5 +229,5 @@ st.markdown(css, unsafe_allow_html=True)
 # Load and inject HTML
 html_file_path = Path("static\\template.html")
 print(html_file_path)
-html = load_html(html_file_path).format(image_base64=image_base64)
+html = load_html().format(image_base64=image_base64)
 st.markdown(html, unsafe_allow_html=True)
