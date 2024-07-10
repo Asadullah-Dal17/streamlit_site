@@ -26,7 +26,7 @@ image_path = "images/my_image.png"
 image_base64 = load_image(image_path)
 
 # Load and inject CSS
-css_file_path = Path("static\style.css")
+css_file_path = Path("static\\style.css")
 css = load_css(css_file_path)
 st.markdown(css, unsafe_allow_html=True)
 
